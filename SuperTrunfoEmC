@@ -1,0 +1,460 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    printf("=== Programa de Super trunfo ===\n");
+
+    // começa contador de tempo para número rand
+    srand(time(0));
+
+    // variáveis para a primeira carta
+    char estadoc1[20], codigoc1[20], nomec1[20];
+    unsigned long long int populacaoc1;
+    double areac1, pibc1;
+    short int pontosturisticosc1;
+
+    // variáveis para a segunda carta
+    char estadoc2[20], codigoc2[20], nomec2[20];
+    unsigned long long int populacaoc2;
+    double areac2, pibc2;
+    short int pontosturisticosc2;
+
+    // variáveis para cálculos
+    float superpoderc1, superpoderc2, densidadec1, densidadec2, pibpercapitac1, pibpercapitac2;
+
+    // variáveis para escolhas de opção (menus interativos)
+    short int escolhainicial, escolhajogar;
+
+    // variável para armazenar número randomico
+    unsigned long long int numeroRandomizado;
+
+    // variáveis para organização da lógica de resultados
+    short int resultado1, resultado2;
+    double valorR1c1, valorR2c1, valorR1c2, valorR2c2;
+
+    // impressão de dados na tela para seleção de jogo
+    printf("Olá! Bem vindo ao programa de super trunfo!\n");
+    printf("O que deseja fazer?\n");
+    printf("1. Jogar\n");
+    printf("2. Ler regras\n");
+    printf("3. Sair\n");
+    printf("Escolha:\n");
+
+    scanf("%hi", &escolhainicial);
+
+    // switch para determinar como o programa prosseguirá dependendo da escolha inicial
+    switch (escolhainicial)
+    {
+    case 1:
+        printf("Como gostaria de jogar?\n");
+        printf("1. Contra o computador\n");
+        printf("2. Cadastrando ambas as cartas\n");
+        printf("Escolha:\n");
+        
+        scanf("%hi", &escolhajogar);
+
+        break;
+
+    case 2:
+        printf("Regras...\n");
+        return 0;
+
+        break;
+
+    case 3:
+        printf("Saindo...\n");
+        return 0;
+
+        break;
+
+    default:
+        printf("Opção inválida\n");
+        break;
+    }
+
+    // caso a escolha seja jogar com suas cartas randomizadas
+    if (escolhajogar == 1)
+    {
+        printf("Randomizando suas cartas...\n");
+
+        printf("Qual o nome da sua carta?\n");
+        scanf("%s", nomec1);
+
+        printf("Qual o estado da sua carta?\n");
+        scanf("%s", estadoc1);
+
+        printf("Qual o código da sua carta?\n");
+        scanf("%s", codigoc1);
+
+            // randomiza o número aleatório
+            numeroRandomizado = rand();
+
+        // atribui um número randomizado às categorias população e área de sua carta
+        populacaoc1 = numeroRandomizado;
+
+        areac1 = numeroRandomizado + populacaoc1;
+
+            // randomiza o número aleatório novamente
+            numeroRandomizado = rand();
+
+        // atribui um número randomizado às categorias PIB e ponto turístico de sua carta
+        pibc1 = numeroRandomizado * 2,75;
+
+        pontosturisticosc1 = numeroRandomizado % 200;
+
+        printf("Randomizando as cartas do computador...\n");
+
+        printf("Qual o nome da carta do computador?\n");
+        scanf("%s", nomec2);
+
+        printf("Qual o estado da carta do computador?\n");
+        scanf("%s", estadoc2);
+
+        printf("Qual o código da carta do computador?\n");
+        scanf("%s", codigoc2);
+
+            // randomiza o número aleatório
+            numeroRandomizado = rand();
+
+        // atribui um número randomizado às categorias população e área de sua carta
+        populacaoc2 = numeroRandomizado;
+
+        areac2 = numeroRandomizado + populacaoc2;
+
+            // randomiza o número aleatório novamente
+            numeroRandomizado = rand();
+
+        // atribui um número randomizado às categorias PIB e ponto turístico de sua carta
+        pibc2 = numeroRandomizado * 2,75;
+
+        pontosturisticosc2 = numeroRandomizado % 200;
+
+    }
+    
+    // caso a escolha seja > Jogar > cadastrando ambas as cartas
+    if (escolhajogar == 2)
+    {
+        // dados para a primeira carta
+        printf("*** Entre com os dados de sua primeira carta de Super trunfo: ***\n");
+        printf("Entre com o estado de sua cidade:\n");
+        scanf(" %s", estadoc1);
+
+        printf("Entre com o código da sua primeira carta de super trunfo:\n");
+        scanf("%s", codigoc1);
+
+        printf("Entre com o nome da cidade escolhida:\n");
+        scanf("%s", nomec1);
+
+        printf("Entre com a população de sua cidade:\n");
+        scanf("%llu", &populacaoc1);
+
+        printf("Entre com a área da sua cidade:\n");
+        scanf("%lf", &areac1);
+
+        printf("Entre com o PIB da sua cidade:\n");
+        scanf("%lf", &pibc1);
+
+        printf("Entre com os pontos turísticos de sua cidade:\n");
+        scanf("%hi", &pontosturisticosc1);
+
+        // dados para a segunda carta
+        printf("Agora coloque os dados da segunda carta!\n");
+
+        printf("Entre com o estado de sua cidade:\n");
+        scanf(" %s", estadoc2);
+
+        printf("Entre com o código da sua segunda carta de super trunfo:\n");
+        scanf("%s", codigoc2);
+
+        printf("Entre com o nome da cidade escolhida:\n");
+        scanf("%s", nomec2);
+
+        printf("Entre com a população de sua cidade:\n");
+        scanf("%llu", &populacaoc2);
+
+        printf("Entre com a área da sua cidade:\n");
+        scanf("%lf", &areac2);
+
+        printf("Entre com o PIB da sua cidade:\n");
+        scanf("%lf", &pibc2);
+
+        printf("Entre com os pontos turísticos de sua cidade:\n");
+        scanf("%hi", &pontosturisticosc2);
+    }
+
+    // cálculos... densidade populacional e essas coisas aqui: simplificar super poder
+
+    densidadec1 = (float)populacaoc1 / areac1;
+    densidadec2 = (float)populacaoc2 / areac2;
+
+    pibpercapitac1 = (float)pibc1 / populacaoc1;
+    pibpercapitac2 = (float)pibc2 / populacaoc2;
+
+    superpoderc1 = ((areac1 + pibc1 + pibpercapitac1 + populacaoc1 + pontosturisticosc1 + (1 / densidadec1)) / 1000);
+    superpoderc2 = ((areac2 + pibc2 + pibpercapitac2 + populacaoc2 + pontosturisticosc2 + (1 / densidadec2)) / 1000);
+
+
+    // Escolha de dados para comparar
+    printf("Escolha dois atributos para comparar\n");
+    printf("Escolha o primeiro:\n");
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. PIB\n");
+    printf("4. Número de pontos turísticos\n");
+    printf("5. Densidade demográfica\n");
+    printf("6. PIB per capita\n");
+    printf("Escolha:\n");
+    scanf("%hi", &resultado1);
+
+    printf("Escolha outro:\n");
+    scanf("%hi", &resultado2);
+
+    if (resultado1 == resultado2)
+    {
+        printf("Não é possível escolher os mesmos dois atributos\n");
+        return 0;
+    }
+    
+
+
+    switch (resultado1)
+    {
+    case 1:
+        if (populacaoc1 > populacaoc2)
+        {
+            printf("A população da sua carta é maior\n");
+        } else if (populacaoc1 < populacaoc2)
+        {
+            printf("A população da sua carta é menor\n");
+        } else {
+            printf("A população da sua carta é igual\n");
+        }
+
+        valorR1c1 = populacaoc1;
+        valorR1c2 = populacaoc2;
+        
+        break;
+
+    case 2:
+    if (areac1 > areac2)
+        {
+            printf("A área da sua carta é maior\n");
+        } else if (areac1 < areac2)
+        {
+            printf("A área da sua carta é menor\n");
+        } else {
+            printf("A área da sua carta é igual\n");
+        }
+        break;
+        valorR1c1 = areac1;
+        valorR1c2 = areac2;
+
+    case 3:
+    if (pibc1 > pibc2)
+        {
+            printf("O PIB da sua carta é maior\n");
+        } else if (pibc1 < pibc2)
+        {
+            printf("O PIB da sua carta é menor\n");
+        } else {
+            printf("O PIB da sua carta é igual\n");
+        }
+        valorR1c1 = pibc1;
+        valorR1c2 = pibc2;
+
+        break;
+    case 4:
+    if (pontosturisticosc1 > pontosturisticosc2)
+        {
+            printf("A sua carta possui mais pontos turísticos\n");
+        } else if (pontosturisticosc1 < pontosturisticosc2)
+        {
+            printf("A sua carta possui menos pontos turísticos\n");
+        } else {
+            printf("A sua carta possui o mesmo número de pontos turísticos\n");
+        }
+        valorR1c1 = pontosturisticosc1;
+        valorR1c2 = pontosturisticosc2;
+
+        break;
+        
+    case 5:
+    if (densidadec1 < densidadec2)
+        {
+            printf("A pontuação de densidade da sua carta é maior\n");
+        } else if (densidadec1 > densidadec2)
+        {
+            printf("A pontuação de densidade da sua carta é menor (pior)\n");
+        } else {
+            printf("A pontuação de densidade da sua carta é igual\n");
+        }
+        valorR1c1 = densidadec1;
+        valorR1c2 = densidadec2;
+        break;
+
+    case 6:
+    if (pibpercapitac1 > pibpercapitac2)
+        {
+            printf("O PIB per capita da sua carta é maior\n");
+        } else if (pibpercapitac1 < pibpercapitac2)
+        {
+            printf("O PIB per capita da sua carta é menor (pior)\n");
+        } else {
+            printf("O PIB per capita da sua carta é igual\n");
+        }
+        valorR1c1 = pibpercapitac1;
+        valorR1c2 = pibpercapitac2;
+        break;
+    
+    default:
+        printf("Opção inválida\n");
+        break;
+    }
+
+
+
+    
+    switch (resultado2)
+    {
+    case 1:
+        if (populacaoc1 > populacaoc2)
+        {
+            printf("A população da sua carta é maior\n");
+        } else if (populacaoc1 < populacaoc2)
+        {
+            printf("A população da sua carta é menor\n");
+        } else {
+            printf("A população da sua carta é igual\n");
+        }
+
+        valorR2c1 = populacaoc1;
+        valorR2c2 = populacaoc2;
+        
+        break;
+
+    case 2:
+    if (areac1 > areac2)
+        {
+            printf("A área da sua carta é maior\n");
+        } else if (areac1 < areac2)
+        {
+            printf("A área da sua carta é menor\n");
+        } else {
+            printf("A área da sua carta é igual\n");
+        }
+        break;
+        valorR2c1 = areac1;
+        valorR2c2 = areac2;
+
+    case 3:
+    if (pibc1 > pibc2)
+        {
+            printf("O PIB da sua carta é maior\n");
+        } else if (pibc1 < pibc2)
+        {
+            printf("O PIB da sua carta é menor\n");
+        } else {
+            printf("O PIB da sua carta é igual\n");
+        }
+        valorR2c1 = pibc1;
+        valorR2c2 = pibc2;
+
+        break;
+    case 4:
+    if (pontosturisticosc1 > pontosturisticosc2)
+        {
+            printf("A sua carta possui mais pontos turísticos\n");
+        } else if (pontosturisticosc1 < pontosturisticosc2)
+        {
+            printf("A sua carta possui menos pontos turísticos\n");
+        } else {
+            printf("A sua carta possui o mesmo número de pontos turísticos\n");
+        }
+        valorR2c1 = pontosturisticosc1;
+        valorR2c2 = pontosturisticosc2;
+
+        break;
+        
+    case 5:
+    if (densidadec1 < densidadec2)
+        {
+            printf("A pontuação de densidade da sua carta é maior\n");
+        } else if (densidadec1 > densidadec2)
+        {
+            printf("A pontuação de densidade da sua carta é menor (pior)\n");
+        } else {
+            printf("A pontuação de densidade da sua carta é igual\n");
+        }
+        valorR2c1 = densidadec1;
+        valorR2c2 = densidadec2;
+        break;
+
+    case 6:
+    if (pibpercapitac1 > pibpercapitac2)
+        {
+            printf("O PIB per capita da sua carta é maior\n");
+        } else if (pibpercapitac1 < pibpercapitac2)
+        {
+            printf("O PIB per capita da sua carta é menor (pior)\n");
+        } else {
+            printf("O PIB per capita da sua carta é igual\n");
+        }
+        valorR2c1 = pibpercapitac1;
+        valorR2c2 = pibpercapitac2;
+        break;
+    
+    default:
+        printf("Opção inválida\n");
+        break;
+    }
+
+    printf("Os valores escolhidos da sua carta somam %lf\n", valorR1c1 + valorR2c1);
+    printf("Os valores da carta do computador somam %lf\n", valorR1c2 + valorR2c2);
+
+    if ((valorR1c1 + valorR2c1) > (valorR2c1 + valorR2c2))
+    {
+        printf("Você ganhou.\n");
+    } else {
+        printf("Você perdeu.\n");
+    }
+    
+
+    escolhainicial = 0;
+
+    printf("Deseja ver os dados de ambas as cartas?\n");
+    printf("1. SIM\n");
+    printf("2. NÃO\n");
+    scanf("%hi", &escolhainicial);
+
+    if (escolhainicial == 1)
+    {
+    // exibição de dados
+    printf("=== A primeira carta possuía os seguintes dados: ===\n");
+    printf("Estado: %s\n", estadoc1);
+    printf("Código: %s\n", codigoc1);
+    printf("Nome da cidade: %s\n", nomec1);
+    printf("População: %u\n", populacaoc1);
+    printf("Área: %.2f km²\n", areac1);
+    printf("Pib: %.2f milhões de reais\n", pibc1);
+    printf("Número de pontos turísticos: %d\n", pontosturisticosc1);
+    printf("Densidade demográfica: %.2f hab/km²\n", densidadec1);
+    printf("PIB per Capita: %.2f reais\n", pibpercapitac1);
+
+    printf("=== A segunda carta possuía os seguintes dados: ===\n");
+    printf("Estado: %s\n", estadoc2);
+    printf("Código: %s\n", codigoc2);
+    printf("Nome da cidade: %s\n", nomec2);
+    printf("População: %u\n", populacaoc2);
+    printf("Área: %.2f km²\n", areac2);
+    printf("Pib: %.2f milhões de reais\n", pibc2);
+    printf("Número de pontos turísticos: %d\n", pontosturisticosc2);
+    printf("Densidade demográfica: %.2f hab/km²\n", densidadec2);
+    printf("PIB per Capita: %.2f reais\n", pibpercapitac2);
+    }
+
+    
+        return 0;
+    
+    
+}
